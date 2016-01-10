@@ -71,8 +71,37 @@
 	        <!-- /.container -->
 	    </nav>
 
+	    <br><br>
 
-	    <br><br><br><br><br><br><br>
+	    <h2 align="center"> Conceitos </h2>
+	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	    	
+	    	<p>
+	    		O termo SDN ( <i> Software Definied Networking </i>) foi originalmente cunhado para representar as ideias e o trabalho relacionado ao OpenFlow em Stanford.
+	    	</p>
+
+	    	<p>
+	    		[1] propõe uma caracterização das SDN baseada em quatro pilares:
+	    		<ul>
+	    			<li>Os <strong>planos de dados e de controle são desacoplados</strong>. Dispositivos de rede passam a ter o papel de apenas encaminhar pacotes;</li>
+	    			<li>Decisões de encaminhamento são <strong>baseadas no fluxo</strong> (fluxo é uma sequência de pacotes entre a fonte e o destino) e não no destino. Todos os pacotes de um fluxo recebem a mesma política nos dispositivos de encaminhamento;</li>
+	    			<li>A <strong>lógica de controle é movida para uma entidade externa</strong>, o controlador da SDN ou NOS (<i>Network Operating System</i>) que roda em um servidor e fornece as abstrações e recursos necessários para programar os dispositivos de encaminhamento com base em uma visão centralizada e abstrata da rede;</li>
+	    			<li>A <strong>rede é programável</strong> através de aplicações rodando no NOS que interagem com os dispositivos do plano de dados.</li>
+	    		</ul>
+	    	</p>
+
+	    	<p>Para cumprir seu objetivo, a SDN trabalha com <strong>três abstrações principais</strong> [1], sendo elas: <i>encaminhamento</i>, <i>distribuição</i> e <i>especificação</i>.</p>
+
+	    	<p>
+	    		<ul>
+	    			<li><strong>Encaminhamento:</strong> Deve permitir qualquer comportamento de encaminhamento à rede sem que seja necessário expor os detalhes do hardware envolvido no processo;</li>
+	    			<li><strong>Distribuição:</strong> Tem como objetivo tornar o problema do controle distribuído em um problema logicamente centralizado. Isso é feito por meio de de uma camada de distribuição comum, que reside no NOS. Essa camada instala os comandos de controle nos dispositivos de encaminhamento e coleta informações do estado da rede;</li>
+	    			<li><strong>Especificação:</strong> Deve possibilitar que uma aplicação de rede expresse o comportamento desejado para a rede sem que seja responsável por implementar esse comportamento, mapeando configurações abstratas especificadas pelas aplicações em uma configuração física na rede global.</li>
+	    		</ul>
+	    	</p>
+	    </div>
+
+
 	    <!-- Footer -->
 	    <footer>
 	        <div class="container">
