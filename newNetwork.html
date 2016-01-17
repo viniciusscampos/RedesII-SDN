@@ -81,11 +81,25 @@
 	    		Toda vez que uma nova tecnologia aparece e tenta ganhar espaço no mundo digital, surgem algumas dúvidas: “Vale a pena adotar a tecnologia nova?”, “A tecnologia atual não atende mais aos requisitos necessários?”, dentre outras. No caso do SDN, não podia ser diferente. Precisamos, então, entender o porquê das redes definidas por software merecerem ganhar a nossa atenção.
 	    	</p>	
 	    	<p>
-	    		As redes IP são as mais tradicionais e mais utilizadas atualmente. Apesar disso, elas são extremamente complexas e difíceis de gerenciar, uma vez que é bastante complicado configurar a rede de acordo com as políticas pré-definidas e reconfigurá-la quando ela apresenta falhas ou mudanças. Além disso, <strong> as atuais redes </strong> são integradas verticalmente, isto é, <strong> os planos de controle e de dados são agrupados. </strong>
+	    		As <strong>redes IP</strong> são as mais tradicionais e mais utilizadas atualmente. Uma enorme parcela da sociedade atual depende da Internet para realizar tarefas cotidianas, de modo que tecnologias de acesso à rede acabaram se tornando de fácil acesso à estas pessoas, fazendo com que a <strong>Internet</strong> adquirisse, ao longo dos anos, uma característica essencial à sua sobrevivência: <strong>estabilidade</strong>. Entretanto, esse aspecto inerente às redes atuais traz diversos problemas, sendo o principal a inviabilização da implementação de novas tecnologias e/ou novos protocolos, uma vez que não se pode existir o risco de interrupção das ferramentas que dependem essencialmente da Internet. Além disso, devido à larga adoção das tecnologias existentes, isto é, a larga adoção das tecnologias de acesso às redes IP por toda a sociedade, a inserção de novas tecnologias que dependam de alterações do hardware a ser utilizado, inviabiliza ainda mais o desenvolvimento de novas tecnologias e protocolos.
 	    	</p>
 	    	<p>
-	    		A grande promessa das redes definidas por software (<strong>SDN</strong>) é <strong>quebrar essa integração vertical</strong>, separando a lógica de controle da rede dos roteadores e comutadores subjacentes, promovendo a centralização da lógica de controle da rede e introduzindo a habilidade de programar a rede. Dessa forma, ao separar o problema de controle da rede em pedaços menores e mais fáceis de serem resolvidos, essa rede se torna extremamente flexível, fácil de ser gerenciada e facilita na criação e introdução de abstrações no contexto de redes de computadores.
+	    		Para adicionar à problemática, as redes IP são extremamente complexas e difíceis de gerenciar, uma vez o processo de configurar a rede de acordo com as políticas pré-definidas e reconfigurá-la quando ela apresenta falhas ou mudanças é extremamente complicado.
 	    	</p>
+	    	<p>
+	    		Outro grande problema das redes atuais e que é resolvido pelas redes definidas por software é: as <strong>atuais redes</strong> são integradas verticalmente, isto é, <strong>os planos de controle e de dados são agrupados</strong> enquanto a grande promessa das redes definidas por software (<strong>SDN</strong>) é <strong>quebrar essa integração vertical</strong>, separando a lógica de controle da rede dos roteadores e comutadores subjacentes, promovendo a centralização da lógica de controle da rede. Ao separar o problema de controle da rede em pedaços menores e mais fáceis de serem resolvidos, essa rede se torna extremamente flexível, fácil de ser gerenciada e facilita na criação e introdução de abstrações no contexto de redes de computadores. Além disso, estas redes introduzem uma habilidade essencial para contornar alguns dos problemas descritos acima das redes atuais: elas são programáveis. Dessa forma, novas tecnologias podem ser implementadas na rede de forma gradual, o que hoje é inviável.
+	    	</p>
+	    	<p>
+	    		Outras iniciativas com o intuito de construir redes com maiores recursos de programação também surgiram, mas não vingaram. Veremos alguns desses exemplos a seguir:
+	    	</p>
+	    	<ul>
+	    		<li>
+	    			Redes Ativas (<i>Active Networks</i>) [Tennenhouse and Wetherall 2007] : Apesar deste projeto ter um potencial alto, ele foi pouco aceito pela comunidade: a necessidade de alteração dos elementos da rede para permitir que se tornassem programáveis trouxe dúvidas a viabilidade da implementação destas redes.
+	    		</li>
+	    		<li>
+	    			PlanetLab [Peterson and Roscoe 2006] e GENI [Turner 2006, Elliott and Falk 2009]: Essas duas iniciativas apostam na adesão de recursos de virtualização para simplificar a transição para novas tecnologias. A longo prazo, cientistas acreditam que o potencial destas tecnologias seja alto. Entretanto, elas ainda não conseguiram garantir o desempenho que as aplicações mais usadas hoje em dia necessitam utilizando os elementos de rede virtualizados.
+	    		</li>
+	    	</ul>
 	    </div>
 
 	    <!-- Footer -->
