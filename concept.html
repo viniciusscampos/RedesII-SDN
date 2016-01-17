@@ -73,9 +73,10 @@
 
 	    <br><br>
 
-	    <h2 align="center"> Conceitos </h2>
+	    <h2 align="center"> Conceitos e Ferramentas </h2>
 	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-	    	
+	    	<h3 align="center"> Conceitos</h3>
+
 	    	<p>
 	    		O termo SDN ( <i> Software Definied Networking </i>) foi originalmente cunhado para representar as ideias e o trabalho relacionado ao OpenFlow em Stanford.
 	    	</p>
@@ -99,6 +100,41 @@
 	    			<li><strong>Especificação:</strong> Deve possibilitar que uma aplicação de rede expresse o comportamento desejado para a rede sem que seja responsável por implementar esse comportamento, mapeando configurações abstratas especificadas pelas aplicações em uma configuração física na rede global.</li>
 	    		</ul>
 	    	</p>
+
+	    	<h3 align="center"> Ferramentas</h3>
+
+		    <p><strong><a href="http://www.projectfloodlight.org/floodlight/">Floodlight:</a></strong>
+		    	<ul>
+		    		<li>Controlador SDN fornecido sob licensa Apache e baseado em Java;</li>
+		    		<li>Trabalha com comutadores físicos e virtuais através do protocolo OpenFlow;</li>
+		    		<li>Permite a especificação do protocolo a ser utilizado para o controle remoto de dispositivos de rede;</li>
+		    		<li>É facilmente extensível e faćil de configurar com poucas dependências;</li>
+		    		<li>Pode administrar redes mistas OpenFlow e não-OpenFlow.</li>
+		    	</ul>
+		    </p>
+
+		    <p><strong><a href="http://www.projectfloodlight.org/indigo/">Indigo:</a></strong>
+		    	<ul>
+		    		<li>Projeto OpenSource focado em fornecer suporte ao OpenFlow em comutadores físicos e em hipervisores;</li>
+		    		<li>É a base do projeto <a href="http://www.bigswitch.com/download/switch-light">Switch Light</a> da Big Switch Networks.</li>
+		    	</ul>
+		    </p>
+
+		    <p><strong><a href="https://wiki.openstack.org/wiki/Neutron">Neutron</a> (<a href="https://www.openstack.org/">OpenStack</a>)</strong>
+		    	<ul>
+		    		<li>Parte do projeto OpenStack, fornece a “rede como serviço” (tradução livre de networking as a service) entre dispositivos como controladores de interface de rede (NICs) administrados por serviços do OpenStack como o Nova;</li>
+		    		<li>Permite a criação de topologias de rede complexas na nuvem;</li>
+		    		<li>Incluir funcionalidades de rede - como Qualidade de Serviço ou Firewalls, por exemplo - através de plugins;</li>
+		    		<li>Permitir a criação serviços de redes avançados acopláveis à redes OpenStack;</li>
+		    		<li>Interface gráfica para algumas operações.</li>
+		    	</ul>
+		    </p>
+
+		    <p><strong><a href="http://openvswitch.org/">Open vSwitch</a></strong>
+		    	<ul>
+		    		<li>Open vSwitch funciona é um comutador virtual distribuído de múltiplas camadas fornecido sob a licensa Apache 2.0.</li>
+		    	</ul>
+		    </p>
 	    </div>
 
 
