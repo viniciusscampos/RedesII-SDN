@@ -133,7 +133,7 @@
 
 	    			<p>
 
-	    				Existem controladores centralizados e distribuídos. Os centralizados possuem uma clara desvantagem: o único controlador da rede é um ponto único de falha. Além disso, um único controlador pode não ser o suficiente para gerenciar uma rede com muitos elementos no plano de dados. No entanto, explorando o paralelismo em computadores de alto desempenho, é possível usar um NOS centralizado para processar milhões de fluxos por segundo, podendo a atender a redes de <i>data centers</i>.
+	    				Existem controladores centralizados e distribuídos. Os centralizados possuem uma clara desvantagem: o único controlador da rede é um ponto único de falha. Além disso, um único controlador pode não ser o suficiente para gerenciar uma rede com muitos elementos no plano de dados. No entanto, explorando o paralelismo em computadores de alto desempenho, é possível usar um NOS centralizado para processar milhões de fluxos por segundo, podendo atender a redes de <i>data centers</i>.
 
 	    			</p>
 
@@ -206,7 +206,7 @@
 
 	    			<p>
 
-	    				O papel do plano de dados é encaminhar os dados na rede. Ele é composto de dispositivos de encaminhamento. Esses dispositivos são elementos de <i>hardware</i> ou <i>software</i> especializados em encaminhar pacotes. Porém, diferentemente de roteadores, comutadores ou <i>middleboxes</i> convencionais, eles não carregam implementações de protocolos e programas complexos. A “inteligência” está concentrada no plano de controle. Em um dispositivo configurado para <i>OpenFlow</i>, por exemplo, apenas estão instaladas <i>tabelas de fluxos</i>, que decidem as ações que serão tomadas com cada pacote. Elas são compostas de <i>regras de compatibilidade de fluxos</i>, isto é, regras de comparação que verificam campos do cabeçalho do pacote, como o destino, protocolo e número de porta, e verificam se estão de acordo com algum valor esperado, e ações a serem tomadas com o pacote caso a regra valha. Ações que podem ser realizadas são:
+	    				O papel do plano de dados é encaminhar os dados na rede. Ele é composto de dispositivos de encaminhamento. Esses dispositivos são elementos de <i>hardware</i> ou <i>software</i> especializados em encaminhar pacotes. Porém, diferentemente de roteadores, comutadores ou <i>middleboxes</i> convencionais, eles não carregam implementações de protocolos e programas complexos. A “inteligência” está concentrada no plano de controle. Em um dispositivo configurado para <i>OpenFlow</i>, por exemplo, apenas estão instaladas <i>tabelas de fluxos</i>, que decidem as ações que serão tomadas com cada pacote. Elas são compostas de <i>regras de compatibilidade de fluxos</i>, isto é, regras de comparação que verificam valores de campos do cabeçalho do pacote, como o destino, protocolo e número de porta com algum valor esperado, e ações a serem tomadas com o pacote caso a regra valha. Ações que podem ser realizadas são:
 
 	    			</p>
 
@@ -287,6 +287,22 @@
 	    				A prioridade entre as regras segue a ordem das linhas de uma tabela e, posteriormente, a ordem das tabelas em uma sequência de processamento.
 	    				
 	    			</p>
+
+
+	    			<p>
+
+	    				A imagem abaixo descreve, de forma resumida, a arquitetura de uma SDN.
+
+	    			</p>
+
+
+	    			<center>
+
+	    			<img src="images/arq2.png" alt="Arquitetura de uma SDN" height="737" width="754">
+
+	    			<h5>Figura 1: A arquitetura de uma SDN</h5>
+
+	    			</center>
 
 		</div>
 
