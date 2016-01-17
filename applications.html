@@ -80,14 +80,35 @@
             <p>Entre vários cenários onde estão sendo adotadas a tecnologia do SDN e <i>OpenFlow</i>, temos :</p>
               <ul>
                 <li>
-                  <p><strong>Controle de Acesso</strong></br>&nbsp;&nbsp;
-                  A visão da rede oferecida pelo controlador SDN permite que <strong>regras de acesso</strong> sejam desenvolvidas de acordo com informações mais especificas e que abrangem melhor o contexto aplicado. Além disso, torna-se mais fácil de se definir as rotas que serão adotadas para cada fluxo viabilizando a utilização de filtros especiais, e dispositivos de inspeção de pacotes e inclusive <i>proxies</i>. Um dos sistemas desenvolvidos foi o Ethane, baseado nesse sistema de controle de acesso.</p>
+                  <p><strong>Controle de Acesso</strong></br>
+                  &nbsp;&nbsp;&nbsp;&nbsp;A visão da rede oferecida pelo controlador SDN permite que <strong>regras de acesso</strong> sejam desenvolvidas de acordo com informações mais especificas e que abrangem melhor o contexto aplicado. Além disso, torna-se mais fácil de se definir as rotas que serão adotadas para cada fluxo viabilizando a utilização de filtros especiais, e dispositivos de inspeção de pacotes e inclusive <i>proxies</i>. Um dos sistemas desenvolvidos foi o Ethane, baseado nesse sistema de controle de acesso.</p>
                 </li>
                 <li>
                   <p><strong>Gerência de Redes [<a href="#">21</a>]</strong></br>
-                    &nbsp;&nbsp;Projetos como OMNI, o que tem como objetivo eferecer opções que podem simplificar a administração de redes <i>OpenFlow</i> através de uma <strong>interface de controle</strong> baseada em uma arquitetura orientada a serviços.</p>
-                  <p>&nbsp;&nbsp;Além desse, pesquisadores da UFAM trabalham no desenvolvimento de técnicas de Inteligencia Artificial integradas com Redes Definidas por Software. Basicamente, o sistema oferece um ponto focal sobre a rede o qual as técnicas de detecção de anomalias ou padrões frequentes podem ser aplicadas para se detectar vários tipos de comportamento, como diversos tipos de ataques, e dessa forma podem ser tomadas medidas necessárias para a prevenção.</p>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Projetos como OMNI, o que tem como objetivo eferecer opções que podem simplificar a administração de redes <i>OpenFlow</i> através de uma <strong>interface de controle</strong> baseada em uma arquitetura orientada a serviços.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Além desse, pesquisadores da UFAM trabalham no desenvolvimento de técnicas de Inteligencia Artificial integradas com Redes Definidas por Software. Basicamente, o sistema oferece um ponto focal sobre a rede o qual as técnicas de detecção de anomalias ou padrões frequentes podem ser aplicadas para se detectar vários tipos de comportamento, como diversos tipos de ataques, e dessa forma podem ser tomadas medidas necessárias para a prevenção.</p>
               </li>
+              <li>
+                <p><strong>Redes Domésticas</strong></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;As redes domésticas tem sido um dos grandes pontos de aplicação para o SDN. Nela, pode ser aplicado novas soluções de configuração e implementação de políticas de privacidade para o lar.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Uma porta de Aplicação do SDN é utilizar roteadores com recursos <i>OpenFlow</i> e transferir para o provedor de acesso a responsabilidade de controlar a rede através de um controlador SDN. Dessa maneira, seria possível programar cada roteador doméstico de cada residencial de acordo com as regras de acesso contratadas por cada usuário. Tendo acesso a cada tráfego dentro das residências, seria possível ter uma visão global de todo o trafego de cada região, podendo assim, saber a distribuição e o fluxo da rede, quais região tem deficit de conexão, além de considerar quais padrões de  tráfego podem indicar ação de atacantes ou código malicioso, possibilitando a ação imediata.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Existe outra solução que pode ser uma possível implementação do SDN. Colocar um controlador SDN interno à rede doméstica. Essa solução possibilita o acompanhamento do tráfego interno da rede, tornando potencialmente mais simples a detecção de maquinas infectadas por <i>malware</i> e a configuração de outros serviços de rede, como impressoras e outros dispositivos de acesso.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Essa solução se torna muito atraente visto que o numero de dispositivos conectados a uma rede vem crescendo vertiginosamente, aumentando assim, a complexidade destas. Dessa forma, a utilização de um controlador seria bastante interessante para o controle e monitoramento da tráfego interno.</br>
+                </p>
+              </li>
+              <li>
+                <p><strong>Gerência de Energia</strong></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;O gerenciamento de energia é bastante útil em ambientes corporativos e em grandes <i>datacenters</i>, onde os recursos de rede possuem grandes proporções.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Com o controlador SDN e dispositivos com suporte a <i>OpenFlow</i>, oferecem uma visão global do estado da rede e dos fluxos dos dados. Sendo assim, seria possível identificar dispositivos  ocioso na rede e poderiam ser colocados em <i>standby</i>, além de redefinir as rotas, dendo assim desligar dispositivos desnecessários no momento. Além disso, permite a implementação de <i>proxies</i> que interceptem tráfego ruidoso na rede, evitando que pacotes atinjam maquinas que podem operar em um modelo de <i>wake-on-lan</i> [<a href="#">21</a>], evitando que as estas sejam ativadas sem necessidade, podendo assim, reduzir o consumo de energia.</br>
+                </p>
+            </li>
+              <li>
+                <p><strong><i>Datacenters</i> multiusuários</strong></br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Em ambientes como <i>datacenters</i> multiusuários, onde há a necessidade da coexistência entre usuários em um mesmo <i>datacenter</i>, uma demanda sempre necessitada é o isolamento do tráfego entre os usuários pra fins de segurança e privacidade das informações.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Uma das formas de conseguir esse isolamento é através da configuração de um VLANs( <i>Virtual Local Area Network</i>)  para cada usuário., dessa maneira, podemos garantir o isolamento necessário. Entretanto, o recurso de VLANs é limitado pelo tamanho dos campos usados para identificá-las [<a href="#">21</a>], tornando impossível a sua utilização com um grande número de usuários. Também existe um outro fator de complicação, as interfaces de configuração são bem limitadas, o que torna a gerência da rede uma tarefa bastante complexa.</br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;A solução obtida é através do fornecimento de um <i>switch</i> virtual para cada usuário que interligam suas máquinas e que não dependem da localização das mesmas na rede física. O controlador SDN é responsável por definir as rotas entre as portas dos diversos <i>switches</i> que compõem o <i>switch</i> virtual e também garantir a alocação dos recursos solicitados por cada usuário. Dessa forma, além de tornar possível o isolamento dos tráfegos de cada usuário, a solução oferece também a possibilidade do usuário realizar o controle direto de sua rede. Sendo assim, é possível que o usuário consiga tratar as redundância de rotas e estabelecer níveis de qualidade de serviço.</br>
+                </p>
+            </li>
             </ul>
           </div>
         </div>
