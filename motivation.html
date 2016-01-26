@@ -31,7 +31,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                </button>
-	                <!-- <a class="navbar-brand" href="index.html" style="color: black;">Introdução</a> -->
+	               <a class="navbar-brand" href="index.html" style="color: black;">SDN</a>
 	            </div>
 
 	            <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,30 +76,53 @@
 
 	    <h2 align="center"> Motivação </h2>
 	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-	    	<p>
-	    		Toda vez que uma nova tecnologia aparece e tenta ganhar espaço no mundo digital, surgem algumas dúvidas: “Vale a pena adotar a tecnologia nova?”, “A tecnologia atual não atende mais aos requisitos necessários?”, dentre outras. No caso do SDN, não podia ser diferente. Precisamos, então, entender o porquê das redes definidas por software merecerem ganhar a nossa atenção.
-	    	</p>	
-	    	<p>
-	    		As <strong>redes IP</strong> são as mais tradicionais e mais utilizadas atualmente. Uma enorme parcela da sociedade atual depende da Internet para realizar tarefas cotidianas, de modo que tecnologias de acesso à rede acabaram se tornando de fácil acesso à estas pessoas, fazendo com que a <strong>Internet</strong> adquirisse, ao longo dos anos, uma característica essencial à sua sobrevivência: <strong>estabilidade</strong>. Entretanto, esse aspecto inerente às redes atuais traz diversos problemas, sendo o principal a inviabilização da implementação de novas tecnologias e/ou novos protocolos, uma vez que não se pode existir o risco de interrupção das ferramentas que dependem essencialmente da Internet. Além disso, devido à larga adoção das tecnologias existentes, isto é, a larga adoção das tecnologias de acesso às redes IP por toda a sociedade, a inserção de novas tecnologias que dependam de alterações do hardware a ser utilizado, inviabiliza ainda mais o desenvolvimento de novas tecnologias e protocolos.
-	    	</p>
-	    	<p>
-	    		Para adicionar à problemática, as redes IP são extremamente complexas e difíceis de gerenciar, uma vez o processo de configurar a rede de acordo com as políticas pré-definidas e reconfigurá-la quando ela apresenta falhas ou mudanças é extremamente complicado.
-	    	</p>
-	    	<p>
-	    		Outro grande problema das redes atuais e que é resolvido pelas redes definidas por software é: as <strong>atuais redes</strong> são integradas verticalmente, isto é, <strong>os planos de controle e de dados são agrupados</strong> enquanto a grande promessa das redes definidas por software (<strong>SDN</strong>) é <strong>quebrar essa integração vertical</strong>, separando a lógica de controle da rede dos roteadores e comutadores subjacentes, promovendo a centralização da lógica de controle da rede. Ao separar o problema de controle da rede em pedaços menores e mais fáceis de serem resolvidos, essa rede se torna extremamente flexível, fácil de ser gerenciada e facilita na criação e introdução de abstrações no contexto de redes de computadores. Além disso, estas redes introduzem uma habilidade essencial para contornar alguns dos problemas descritos acima das redes atuais: elas são programáveis. Dessa forma, novas tecnologias podem ser implementadas na rede de forma gradual, o que hoje é inviável.
-	    	</p>
-	    	<p>
-	    		Outras iniciativas com o intuito de construir redes com maiores recursos de programação também surgiram, mas não vingaram. Veremos alguns desses exemplos a seguir:
-	    	</p>
-	    	<ul>
-	    		<li>
-	    			Redes Ativas (<i>Active Networks</i>) [Tennenhouse and Wetherall 2007] : Apesar deste projeto ter um potencial alto, ele foi pouco aceito pela comunidade: a necessidade de alteração dos elementos da rede para permitir que se tornassem programáveis trouxe dúvidas a viabilidade da implementação destas redes.
-	    		</li>
-	    		<li>
-	    			PlanetLab [Peterson and Roscoe 2006] e GENI [Turner 2006, Elliott and Falk 2009]: Essas duas iniciativas apostam na adesão de recursos de virtualização para simplificar a transição para novas tecnologias. A longo prazo, cientistas acreditam que o potencial destas tecnologias seja alto. Entretanto, elas ainda não conseguiram garantir o desempenho que as aplicações mais usadas hoje em dia necessitam utilizando os elementos de rede virtualizados.
-	    		</li>
-	    	</ul>
+			
+			<h4 algin="left"> História </h4>
+			
+			<p> 
+			O termo SDN (<i>Software-Defined Networking</i>) foi originalmente cunhado para representar as ideias e o trabalho relacionado ao projeto <i>OpenFlow</i>, em Stanford. A definição do termo, entretanto, expandiu muito desde então, incluindo uma variedade muito maior de tecnologias.
+			</p>
+			
+			<p>
+			O objetivo que precede a criação das redes definidas por software (SDN) era criar uma rede de computadores programáveis, permitindo a inovação no gerenciamento das redes e diminuindo a barreira, então existente, para criar novos serviços para a rede. Antes das SDNs surgirem, diversas outras tentativas de redes programáveis surgiram, como podemos ver na Figura 1. Veremos, a seguir, mais detalhes de alguns desses projetos e o porquê de alguns deles não terem vingado no mercado, mas terem tido uma contribuição essencial ao projeto de desenvolvimento de redes programáveis.
+			</p>
+			
+			<center>
+			<img src="images/motivation.png" alt="Redes Programáveis" height="500" width="1000">
+			<h5>Figura 1: A evolução das redes programáveis. Imagem retirada do artigo [22]</h5>
+			</center>
+			
+			<br><br>
+			
+			<ul>
+				<li>
+					Redes Ativas (<i>Active Networks</i>) [Tennenhouse and Wetherall]: Introduziram funções programáveis na rede para permitir maiores inovações na mesma. Apesar deste projeto ter um potencial alto, ele foi pouco aceito pela comunidade: a necessidade de alteração dos elementos da rede para permitir que se tornassem programáveis trouxe dúvidas a viabilidade da implementação destas redes.
+				</li>
+				<li>
+					PlanetLab [Peterson and Roscoe 2006] e GENI [Turner 2006, Elliott and Falk 2009]: Essas duas iniciativas apostaram na adesão de recursos de virtualização para simplificar a transição para novas tecnologias. A longo prazo, cientistas acreditam que o potencial destas tecnologias seja alto. Entretanto, elas ainda não conseguiram garantir o desempenho que as aplicações mais usadas hoje em dia necessitam utilizando os elementos de rede virtualizados.
+				</li>
+			</ul>
+			
+			
+			<br><br>
+			<h4 algin="left"> Comparações </h4>
+	    	
+			<p>
+				Toda vez que uma nova tecnologia aparece e tenta ganhar espaço no mundo digital, surgem algumas dúvidas, como: “Vale a pena adotar a tecnologia nova?”, “A tecnologia atual não atende mais aos requisitos necessários?”. No caso da SDN, não podia ser diferente. Precisamos, então, entender o porquê das redes definidas por software merecerem ganhar a nossa atenção.
+			</p>
+			
+			<p>
+				As <strong>redes IP</strong> são as mais tradicionais e mais utilizadas atualmente. Uma enorme parcela da sociedade atual depende da Internet para realizar tarefas cotidianas, de modo que tecnologias de acesso à rede acabaram se tornando de fácil acesso às pessoas, fazendo com que a <strong>Internet</strong> adquirisse, ao longo dos anos, uma característica essencial à sua sobrevivência: <strong>estabilidade</strong>. Entretanto, esse aspecto inerente às redes atuais, traz diversos problemas, sendo um dos principais motivos para a inviabilização da implementação de novas tecnologias e/ou novos protocolos, uma vez que não se pode existir o risco de interrupção das ferramentas que dependem essencialmente da Internet. Não só a estabilidade causa as redes IP a não evoluírem, mas o fato destas redes concentrarem a inteligência nas extremidades (ex: TCP) e ter o seu núcleo (IP) simples, criar novas aplicações de rede é extremamente complicado, uma vez que elas devem ser criadas para serem usadas pelas extremidades, dificultando o espalhamento destas novas funções. Além disso, devido à larga adoção das tecnologias existentes, isto é, a larga adoção das tecnologias de acesso às redes IP por toda a sociedade, a inserção de novas tecnologias que dependam de alterações do hardware a ser utilizado, inviabiliza ainda mais o desenvolvimento de novas tecnologias e protocolos. A quantidade e variedade de aplicações de rede que podem ser desenvolvidas com rapidez e maior facilidade por meio das APIs e linguagens de programação é um dos argumentos mais fortes para a adoção de uma SDN.
+			</p>
+			
+			<p>
+				Para adicionar à problemática, as redes IP são extremamente complexas e difíceis de gerenciar, uma vez que o processo de configurar uma rede de acordo com as políticas pré-definidas e reconfigurá-la quando ela apresenta falhas, uma vez que não existe nenhum indicador apontando para aonde a falha possa estar, ou mudanças é extremamente complicado.
+			</p>
+			
+			<p>
+				Outro grande problema das redes atuais, que é resolvido pelas redes definidas por software, é: as <strong>atuais redes</strong> são integradas verticalmente, isto é, <strong>os planos de controle e de dados são agrupados</strong> enquanto a grande promessa das redes definidas por software (<strong>SDN</strong>) é <strong>quebrar essa integração vertical</strong>, separando a lógica de controle da rede dos roteadores e comutadores subjacentes, promovendo a centralização da lógica de controle da rede. Além disso, estas redes introduzem uma habilidade essencial para contornar alguns dos problemas descritos acima das redes atuais: elas são programáveis. Dessa forma, novas tecnologias podem ser implementadas na rede de forma gradual, o que hoje é inviável. Não só isso, mas pelo fato das SDNs serem programáveis, estas redes podem ter funcionalidades para tentar garantir, junto às VNFs (Virtualized Network Functions), Qualidade de Serviço, o que a rede atual não é capaz. Isso se dá devido ao fato que ela foi construída sob dois paradigmas: FIFO (First in First out) e a lei do menor esforço, o que impede a diferenciação de serviços, tendo todos os usuários da Internet, pois não existe nenhuma forma de priorizar pacotes a serem enviados, uma vez que todos ficam na mesma fila em que o primeiro pacote a chegar é enviado primeiro. Ademais, as SDNs também podem gerenciar sua segurança, como será visto mais a frente.
+			</p>
+			
 	    </div>
 
 	    <!-- Footer -->
