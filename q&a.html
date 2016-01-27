@@ -11,6 +11,8 @@
 	    <!-- Custom CSS -->
 	    <link href="css/clean-blog.min.css" rel="stylesheet">
 
+	    <link href="css/style.css" rel="stylesheet">
+
 	    <!-- Custom Fonts -->
 	    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -82,12 +84,47 @@
 			<li>Não garante qualidade de serviço;</li>
 			<li>Não garante segurança;</li>
 			</ul>
-		<p>2) Quais são os principais benefícios que as SDNs trouxeram para segurança da rede?</p>
+
+		<p>2) O que é o conceito de quebra da integração vertical na rede?</p>
+			<ul>
+				<li>A quebra da integração vertical é a separação a lógica de controle da rede de dispositivos de rede subjacente.</li>
+			</ul>
+
+		<p>3) Qual é o papel dos planos de gerenciamento, controle e dados e como eles interagem entre si em uma SDN?</p>
+		<ul>
+			<li>
+
+				Plano de Gerenciamento: Realiza a interface entre o administrador da rede e a SDN. Nesse plano, se concentram as aplicações de rede, que obtêm estatísticas sobre a rede e enviam especificações da rede desejada por meio da <i>Northbound Interface</i>. O administrador da rede, pelo plano de gerenciamento, obtem uma versão abstraída da rede.
+
+			</li>
+
+			<p></p>
+
+			<li>
+
+				Plano de Controle: Concentra a “inteligência” da rede. Composto pelo Sistema Operacional da Rede (NOS), ele fornece estatísticas sobre a rede e informações sobre a topologia pela <i>Northbound Interface</i> e realiza distribuição de configurações para roteadores, descoberta de dispositivos e roteamento através da <i>Southbound Interface</i>. Através dessa interface, ele recebe também estatísticas sobre a rede, que são processadas e enviadas pela <i>Northbound Interface</i>.
+
+
+			</li>
+
+			<p></p>
+
+			<li>
+
+				Plano de Dados: Composto de dispositivos de encaminhamento (comutadores e roteadores físicos ou virtuais), seu papel principal é encaminhar os dados na rede. Recebendo configurações do controlador através da <i>Southbound Interface</i>, os dispositivos podem assumir diversas funções além do encaminhamento, como <i>firewall</i>, balanceador de carga e sistema de detecção de intrusos (IDS). Também envia estatísticas armazenadas na tabela de fluxos para o controlador pela <i>Southbound Interface</i>.
+
+
+			</li>
+
+		</ul>
+
+		<p>4) Quais são os principais benefícios que as SDNs trouxeram para segurança da rede?</p>
 			<ul>
 			<li>Flexibilidade e menor custo: devido a capacidade de instalar as aplicações de segurança nos comutadores ou adicionando funcionalidades ao controlador centralizado, sem que haja necessidade de utilização de <i>hardware</i> especializado para realização dessa tarefa;</li>
 			<li>Implementabilidade: devido a capacidade de configuração das aplicações que estarão presentes nos comutadores e no controlador por meio da utilização de APIs;</li>
 			</ul>
-		<p>3) Quais são as principais vantagens e desvantagens da utilização de um controlador centralizado?</p>
+
+		<p>5) Quais são as principais vantagens e desvantagens da utilização de um controlador centralizado?</p>
 			<ul>
 			<li>Vantagens:
 				<ul>
@@ -102,35 +139,6 @@
 					<li>Não é escalável;</li>
 				</ul>
 			</li>
-			</ul>
-
-
-		<p>4) Qual é o papel dos planos de gerenciamento, controle e dados e como eles interagem entre si em uma SDN?</p>
-			<ul>
-				<li>
-
-					Plano de Gerenciamento: Realiza a interface entre o administrador da rede e a SDN. Nesse plano, se concentram as aplicações de rede, que obtêm estatísticas sobre a rede e enviam especificações da rede desejada por meio da <i>Northbound Interface</i>. O administrador da rede, pelo plano de gerenciamento, obtem uma versão abstraída da rede.
-
-				</li>
-
-				<p></p>
-
-				<li>
-
-					Plano de Controle: Concentra a “inteligência” da rede. Composto pelo Sistema Operacional da Rede (NOS), ele fornece estatísticas sobre a rede e informações sobre a topologia pela <i>Northbound Interface</i> e realiza distribuição de configurações para roteadores, descoberta de dispositivos e roteamento através da <i>Southbound Interface</i>. Através dessa interface, ele recebe também estatísticas sobre a rede, que são processadas e enviadas pela <i>Northbound Interface</i>.
-
-
-				</li>
-
-				<p></p>
-
-				<li>
-
-					Plano de Dados: Composto de dispositivos de encaminhamento (comutadores e roteadores físicos ou virtuais), seu papel principal é encaminhar os dados na rede. Recebendo configurações do controlador através da <i>Southbound Interface</i>, os dispositivos podem assumir diversas funções além do encaminhamento, como <i>firewall</i>, balanceador de carga e sistema de detecção de intrusos (IDS). Também envia estatísticas armazenadas na tabela de fluxos para o controlador pela <i>Southbound Interface</i>.
-
-
-				</li>
-
 			</ul>
 		</div>
 		

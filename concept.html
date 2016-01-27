@@ -91,9 +91,10 @@
 <li>Distribuição: Tem como objetivo tornar o problema do controle distribuído em um problema logicamente centralizado. Isso é feito por meio de de uma camada de distribuição comum, que reside no NOS. Essa camada instala os comandos de controle nos dispositivos de encaminhamento e coleta informações do estado da rede;</li>
 <li>Especificação: Deve possibilitar que uma aplicação de rede expresse o comportamento desejado para a rede sem que seja responsável por implementar esse comportamento, mapeando configurações abstratas especificadas pelas aplicações em uma configuração física na rede global.</li>
 </ul>
-<p>Embora no texto o foco principal seja mais relacionado ao OpenFlow, cabe ressaltar que outras formas de implementar SDNs são propostas. Algumas como alternativa ao uso do OpenFlow. Segundo <a href="references.html#26">[26]</a>, três abordagens atualmente dominam o mercado de SDNs:</p>
+<p>Embora no texto o foco principal seja mais relacionado ao OpenFlow, cabe ressaltar que outras formas de implementar SDNs são propostas. Isso porque o suporte dos vendedores de hardware à novas versões do <i>OpenFlow</i> tem diminuído, uma vez que eles constataram que os custos de seu uso, em alguns casos, superavam os benefícios trazidos pela tecnologia. Além disso, há um atraso na implementação eficiente das grandes tabelas de fluxo utilizadas pelo protocolo, o que atrapalha as taxas de adoção da tecnologia.</p>  
+<p>Por isso, além do <i>OpenFlow</i> <a href="references.html#26">[26]</a> indica que outras duas atualmente também tễm destaque no mercado de SDNs:</p>
 <ul>
-<li>OpenFlow:
+<li><i>OpenFlow</i>:
 <ul>
 <li>Protocolo de comunicação <em>southbound</em> que fornece uma abstração para comunicação entre um controlador e os dispositivos de rede;</li>
 <li>Baseado em fluxos, permite que a rede seja programada de forma flexível e dinâmica;</li>
@@ -115,7 +116,7 @@
 <ul>
 <li>Hipervisores:
 <ul>
-<li>Também conhecidos como máquinas virtuais, no caso das aplicações descritas no texto são sistemas que permitem a reprodução de diversas funções de dispositivos de rede em dispositivos genéricos;</li>
+<li>No caso das aplicações descritas no texto, são sistemas que permitem a administração e reprodução de diversas funções de dispositivos de rede em dispositivos genéricos;</li>
 </ul></li>
 <li>Interfaces:
 <ul>

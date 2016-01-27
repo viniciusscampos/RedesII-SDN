@@ -77,8 +77,19 @@
 	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	    	
 	    	<p>
-	    		A arquitetura das redes definidas por software pode ser dividida em cinco partes principais: os <strong>planos de gerenciamento, controle e dados</strong> e as interfaces para o norte (<i><strong>Northbound Interface</strong></i>) e para o sul (<i><strong>Southbound Interface</strong></i>), que serão descritos a seguir.
+	    		A arquitetura das redes definidas por software pode ser dividida em cinco partes principais: os <strong>planos de gerenciamento, controle e dados</strong>, que podem ser vistos na Figura 2, abaixo, e as interfaces para o norte (<i><strong>Northbound Interface</strong></i>) e para o sul (<i><strong>Southbound Interface</strong></i>)
+	    		. Todas as partes listadas serão descritas a seguir.
 	    	</p>
+
+			<center>
+
+			<img src="images/arq2.png" alt="Arquitetura de uma SDN" height="737" width="754">
+
+			<p></p>
+
+			<h5>Figura 2: A arquitetura de uma SDN</h5>
+
+			</center>
 
 	    		<h3 align="left">Plano de Gerenciamento</h3>
 
@@ -100,7 +111,7 @@
 
 	    			<p></p>
 
-	    			<h5>Figura 2: Exemplo de política de rede definida na linguagem NetCore. Fonte: [<a href="references.html#27">27</a>]</h5>
+	    			<h5>Figura 3: Exemplo de política de rede definida na linguagem NetCore. Fonte: [<a href="references.html#27">27</a>]</h5>
 
 	    			<p>
 
@@ -242,73 +253,40 @@
 	    			</p>
 
 	    			<p>
-
 	    				Em um dispositivo configurado para <i>OpenFlow</i>, por exemplo, apenas estão instaladas <i>tabelas de fluxos</i>, que decidem as ações que serão tomadas com cada pacote. Nesse contexto, um fluxo é um conjunto de pacotes com valores semelhantes.
-
 	    			</p>
 
 	    			<p>
-
 	    				Essas tabelas são compostas de <i>regras de compatibilidade de fluxos</i>, isto é, regras que comparam valores de campos do cabeçalho do pacote bit a bit, como o destino, protocolo e número de porta, com algum valor esperado, e ações a serem tomadas com o pacote caso a regra valha. Além disso, as tabelas de fluxo possuem contadores, que mantêm estatísticas de utilização e permitem a remoção de fluxos inativos. Ações que podem ser realizadas são:
-
 	    			</p>
 
 	    			<ul>
-
-
 	    				<li>
-
 	    					<p>
-
 	    						Encaminhar o pacote para uma porta de saída
-
 	    					</p>
-
-
 	    				</li>
 
 	    				<li>
-
 	    					<p>
-
 	    						Encapsular e encaminhar o pacote para o controlador
-
 	    					</p>
-
-
 	    				</li>
 
-
 	    				<li>
-
 	    					<p>
-
 	    						Descartá-lo
-
 	    					</p>
-
-
 	    				</li>
 
-
-
-
-
 	    				<li>
-
 	    					<p>
-
 	    						Enviá-lo para a próxima tabela de fluxos ou para alguma tabela especial
-
 	    					</p>
-
-
 	    				</li>
 
 	    				<li>
-
 	    					<p>
-
 	    						Enviá-lo para a sequência de processamento normal do equipamento nas camadas 2 (Internet) ou 3 (Transporte)
 
 	    					</p>
@@ -352,25 +330,13 @@
 
 	    			<p></p>
 
-	    			<h5>Figura 3: Acima, um exemplo de tabela de fluxos, e abaixo, os campos do cabeçalho usados na especificação de fluxos do <i>OpenFlow</i></h5>
-
-
+	    			<h5>Figura 4: Acima, um exemplo de tabela de fluxos, e abaixo, os campos do cabeçalho usados na especificação de fluxos do <i>OpenFlow</i></h5>
+<!-- 
 	    			<p>
 
 	    				A Figura 4 descreve, de forma resumida, a arquitetura de uma SDN.
 
-	    			</p>
-
-
-	    			<center>
-
-	    			<img src="images/arq2.png" alt="Arquitetura de uma SDN" height="737" width="754">
-
-	    			<p></p>
-
-	    			<h5>Figura 4: A arquitetura de uma SDN</h5>
-
-	    			</center>
+	    			</p> -->
 
 		</div>
 
