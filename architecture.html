@@ -77,31 +77,59 @@
 	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 	    	
 	    	<p>
-	    		A arquitetura das redes definidas por software pode ser dividida em cinco partes principais: os planos de gerenciamento, controle e dados e as interfaces para o norte (<i>Northbound Interface</i>) e para o sul (Southbound Interface), que serão descritos a seguir.
+	    		A arquitetura das redes definidas por software pode ser dividida em cinco partes principais: os <strong>planos de gerenciamento, controle e dados</strong> e as interfaces para o norte (<i><strong>Northbound Interface</strong></i>) e para o sul (<i><strong>Southbound Interface</strong></i>), que serão descritos a seguir.
 	    	</p>
 
 	    		<h3 align="left">Plano de Gerenciamento</h3>
 
 	    			<p>
-	    				O plano de gerenciamento é a interface entre a SDN e o administrador da rede. Por meio dele, é possível programar os equipamentos da rede para desempenhar várias funções, além de obter informações sobre o estado da rede e notificações sobre eventos que ocorreram. Essas funções são realizadas de forma facilitada devido às APIs (<i>Application Programming Interfaces</i>) que realizam a comunicação entre ele e o controlador, além das linguagens de programação usadas nas aplicações desse plano, que fornecem várias abstrações, facilitando a programação das aplicações e o reuso de código.
+	    				O plano de gerenciamento é a <strong>interface entre uma SDN e o administrador da rede</strong>. Por meio dele, é possível programar os equipamentos da rede para desempenhar várias funções, além de obter informações sobre o estado da rede e notificações sobre eventos que ocorreram. Essas funções são realizadas de forma facilitada devido às APIs (<i>Application Programming Interfaces</i>) que realizam a comunicação entre o plano de gerenciamento e o controlador, além das linguagens de programação usadas nas aplicações desse plano, que fornecem várias abstrações, facilitando a programação das aplicações e o reuso de código, além de evitar erros e conflitos entre comandos vindos de várias aplicações. As APIs usadas são a <i>Northbound Interface</i> e a <i>Southbound Interface</i>, descritas abaixo.
 
 	    			</p>
 
 	    			<p>
-	    				As principais aplicações de rede em uma SDN exercem as funções mais comuns em uma rede de computadores: roteamento, balanceamento de carga e aplicação de políticas de segurança. Além disso, algumas funções mais novas são realizadas, como economia de energia, aplicação de Qualidade de Serviço (<i>Quality of Service</i> – QoS) fim-a-fim, virtualização de redes, gerenciamento de mobilidade em redes sem-fio, engenharia de tráfego, e muitas outras. A quantidade e variedade de aplicações de rede que podem ser desenvolvidas com rapidez e maior facilidade por meio das APIs e linguagens de programação é um dos argumentos mais fortes para a adoção de uma SDN.
+	    				Um exemplo de linguagem de programação utilizada é a <i>NetCore</i> (<i>Network Core Programming Language</i>). Ela é uma linguagem declarativa de alto nível usada para especificações de políticas de encaminhamento de pacotes. A sintaxe utilizada torna possível especificar políticas com sentenças similares às da Lógica Matemática. Um exemplo de política de rede definida nessa linguagem pode ser vista na Figura 2.
+
+	    			</p>
+
+	    			<center>
+
+	    			<img src="images/regra netcore.png" alt="Exemplo de política de rede em NetCore" height="59" width="614">
+
+	    			</center>
+
+	    			<p></p>
+
+	    			<h5>Figura 2: Exemplo de política de rede definida na linguagem NetCore. Fonte: [<a href="references.html#27">27</a>]</h5>
+
+	    			<p>
+
+	    				Essa regra define que qualquer pacote originário da subrede 10.0.0.0/8 deve ser encaminhado para o comutador (<i>switch</i>) 1, exceto os que possuam como endereço IP de origem 10.0.0.1 ou que sejam destinados à porta 80.
+
+	    			</p>
+
+	    			<p>
+
+	    				Como será visto na seção sobre o plano de dados, um comutador só pode processar regras simples de comparação de bits, além de possuir capacidade de processamento muito inferior à do controlador de uma SDN (um servidor). Logo, o compilador e o sistema de tempo de execução da linguagem dividem o programa entre o comutador e o controlador, armazenando regras mais complexas no controlador e mais simples no comutador. Toda vez que for necessária a intervenção do controlador pois o comutador não tinha uma regra definida para um pacote que chegou, parte da regra instalada no controlador é instalada no comutador, gerando um conjunto de regras mais simples.
+
+
+	    			</p>
+
+	    			<p>
+	    				As principais aplicações de rede em uma SDN exercem as funções mais comuns em uma rede de computadores: roteamento, balanceamento de carga e aplicação de políticas de segurança. Além disso, algumas funções mais novas são realizadas, como economia de energia, aplicação de Qualidade de Serviço (<i>Quality of Service</i> – QoS) fim-a-fim, virtualização de redes, gerenciamento de mobilidade em redes sem-fio, engenharia de tráfego, e muitas outras.
 
 	    			</p>
 
 	    		<h3 align="left"><i>Northbound Interface</i></h3>
 
 	    			<p>
-	    				A <i>Northbound Interface</i> (interface para o norte, em português) é uma peça chave da arquitetura da SDN. Ela é uma API que faz a comunicação entre o plano de gerenciamento e o plano de controle, efetivamente permitindo que aplicações utilizadas por administradores de rede efetuem o controle e o monitoramento das funções da rede sem ter que ajustar os detalhes mais finos da comunicação. Isso é possível também devido à <i>Southbound Interface</i>, descrita mais adiante.
+	    				A <i>Northbound Interface</i> (interface para o norte, em português) é uma peça chave da arquitetura da SDN. Ela é uma API que faz a <strong>comunicação entre o plano de gerenciamento e o plano de controle</strong>, efetivamente permitindo que aplicações utilizadas por administradores de rede efetuem o controle e o monitoramento das funções da rede sem ter que ajustar os detalhes mais finos da comunicação. Isso é possível também devido à <i>Southbound Interface</i>, descrita mais adiante.
 
 	    			</p>
 
 	    			<p>
 
-	    				O ideal para esse tipo de interface é que um padrão seja estabelecido, de modo que seja gerada uma abstração que independa da linguagem de programação e do controlador. No entanto, isso ainda não foi definido. Cada controlador especifica sua própria API.
+	    				O ideal para esse tipo de interface é que um padrão seja estabelecido, de modo que seja gerada uma abstração que independa da linguagem de programação e do controlador. No entanto, estudiosos da área ainda não entraram em um consenso sobre o padrão a ser seguido. Cada controlador especifica sua própria API.
 
 	    			</p>
 
@@ -115,37 +143,41 @@
 
 	    			<p>
 
-	    				Esse plano concentra a “inteligência” da rede definida por software. Ela é composta pelo sistema operacional da rede (<i>Network Operating System</i> - NOS), que oferece um controle centralizado <i>logicamente</i> (o que não necessariamente implica na existência de um único controlador físico). Como qualquer outro sistema operacional, ele fornece abstrações, serviços essenciais e APIs para desenvolvedores. Isso significa que um desenvolvedor não precisa mais saber de todos os detalhes de uma transmissão de pacotes para definir uma política de rede, facilitando o seu desenvolvimento e diminuindo a chance de erros. Geralmente, ele pode ser instalado em um computador de porte médio.
+	    				Esse plano concentra a “inteligência” da rede definida por software. Ela é <strong>composta pelo sistema operacional da rede (Network Operating System - NOS)</strong>, que oferece um controle centralizado <i>logicamente</i> (o que não necessariamente implica na existência de um único controlador físico). Como qualquer outro sistema operacional, ele fornece abstrações, serviços essenciais e APIs para desenvolvedores. Isso significa que um desenvolvedor não precisa mais saber de todos os detalhes de uma transmissão de pacotes para definir uma política de rede, facilitando o seu desenvolvimento e diminuindo a chance de erros.
 
 	    			</p>
 
 	    			<p>
 
 	    				As funções principais de um NOS são: análise do estado da rede, fornecimento de informações sobre a topologia, descoberta de dispositivos conectados à rede, distribuição de configurações da rede, gerenciamento de dispositivos, encaminhamento de dados pelo caminho mais curto, mecanismos de segurança, além de recebimento, processamento e encaminhamento de eventos. Recursos de segurança são de primordial importância, pois eles provêm isolamento e aplicação de regras entre serviços e aplicações.
+	    			</p>
+
+	    			<p>
+
+	    				Para executar as suas funções, o NOS possui instalada uma pilha de <i>softwares</i>, incluindo protocolos. Por exemplo, para poder realizar o roteamento, o controlador possui instaladas implementações de protocolos de roteamento, como OSPF, IS-IS e BGP, utiliza um dos protocolos para decidir o melhor caminho para um determinado pacote, e ajusta todos os equipamentos de modo que o pacote siga o caminho determinado pelo algoritmo utilizado.
 
 	    			</p>
 
 	    			<p>
 
-	    				Um NOS deve fornecer uma interface comum para as camadas superiores, enquanto permite que uma plataforma de controle use diferentes <i>Southbound APIs</i> e <i>plug-ins</i> de protocolos, assim permitindo gerenciar diferentes dispositivos da rede, além de oferecer compatibilidade entre diferentes versões.
+	    				Um NOS deve fornecer uma <strong>interface comum para as camadas superiores</strong>, enquanto permite que uma <strong>plataforma de controle use diferentes <i>Southbound APIs</i> e <i>plug-ins</i> de protocolos</strong>, assim permitindo gerenciar diferentes dispositivos da rede, além de oferecer compatibilidade entre diferentes versões.
+
 
 	    			</p>
 
 	    			<p>
 
-	    				Existem controladores centralizados e distribuídos. Os centralizados possuem uma clara desvantagem: o único controlador da rede é um ponto único de falha. Além disso, um único controlador pode não ser o suficiente para gerenciar uma rede com muitos elementos no plano de dados. No entanto, explorando o paralelismo em computadores de alto desempenho, é possível usar um NOS centralizado para processar milhões de fluxos por segundo, podendo atender a redes de <i>data centers</i>.
-
+	    				Existem <strong>controladores centralizados e distribuídos</strong>. Os <strong>centralizados</strong> possuem uma clara desvantagem: o único controlador da rede é um <strong>ponto único de falha</strong>. Além disso, um único controlador pode não ser o suficiente para gerenciar uma rede com muitos elementos no plano de dados. No entanto, explorando o paralelismo em computadores de alto desempenho, é possível usar um NOS centralizado para processar milhões de fluxos por segundo, podendo atender a redes de <i>data centers</i>.
 	    			</p>
 
 	    			<p>
 
-	    				Já um controlador distribuído pode ser escalado para atender aos requisitos de qualquer ambiente. Ele pode ser um conjunto de nós concentrados em uma localidade ou vários elementos de processamento distantes um do outro. A vantagem de um controlador distribuído é a maior resiliência para falhas de físicas e lógicas. No entanto, um obstáculo é manter o estado da rede sempre atualizado para todos os componentes do controlador.
-
+	    				Já um <strong>controlador distribuído</strong> pode ser escalado para atender aos requisitos de qualquer ambiente. Ele pode ser um conjunto de nós concentrados em uma localidade ou vários elementos de processamento distantes um do outro. A vantagem de um controlador distribuído é a <strong>maior resiliência para falhas físicas e lógicas</strong>. No entanto, um obstáculo é <strong>manter o estado da rede sempre atualizado para todos os componentes do controlador</strong>.
 	    			</p>
 
 	    			<p>
 
-	    				Para a comunicação entre os nós do controlador, são usadas APIs especiais, chamadas de <i>Westbound</i> API e <i>Eastbound</i> API (em português, interface para o oeste e interface para o leste, respectivamente). Cada controlador implementa suas próprias APIs desse tipo. Algumas de suas funções são transmissão de dados entre os nós do controlador, algoritmos para a manutenção da consistência dos dados e recursos de monitoramento e notificação (por exemplo, verificar se um dos nós está ligado e notificação de que um nó assumiu o lugar de outro no controle de um conjunto de dispositivos de rede).
+	    				Para a <strong>comunicação entre os nós do controlador distribuído, são usadas APIs especiais</strong>, chamadas de <i>Westbound API</i> e <i>Eastbound API</i> (em português, interface para o oeste e interface para o leste, respectivamente). <strong>Cada controlador implementa suas próprias APIs desse tipo</strong>. Algumas de suas funções são transmissão de dados entre os nós do controlador, algoritmos para a manutenção da consistência dos dados e recursos de monitoramento e notificação (por exemplo, verificar se um dos nós está ligado e notificação de que um nó assumiu o lugar de outro no controle de um conjunto de dispositivos de rede).
 
 	    			</p>
 
@@ -156,8 +188,7 @@
 	    			<p>
 
 
-	    				A <i>Southbound Interface</i> (ou interface para o sul, em português) é a ponte entre os elementos de controle e encaminhamento de dados. Esse o elemento vital para a separação entre os planos de controle e dados. Essa interface também é uma API. É por meio dela que os controladores da SDN podem comunicar os requisitos das aplicações para a rede, reprogramando os equipamentos para que eles desempenhem inúmeras funções, como controle de fluxo, <i>firewall</i>, sistemas de detecção de intrusos (IDS), além de roteamento e comutação. Essa reprogramação é feita adicionando ou removendo regras das <i>tabelas de fluxo</i>, que serão descritas com detalhes na descrição sobre o plano de dados.
-
+	    				A <strong><i>Southbound Interface</i></strong> (ou interface para o sul, em português) é a <strong>ponte entre os elementos de controle e encaminhamento de dados</strong>. Esse é o elemento vital para a separação entre os planos de controle e dados. Essa interface <strong>também é uma API</strong>. É por meio dela que os controladores da SDN podem comunicar os requisitos das aplicações para a rede, reprogramando os equipamentos para que eles desempenhem inúmeras funções, como controle de fluxo, <i>firewall</i>, sistemas de detecção de intrusos (IDS), além de roteamento e comutação. Essa reprogramação é feita adicionando ou removendo regras das <i>tabelas de fluxos</i>, que serão descritas com detalhes na descrição sobre o plano de dados.
 
 	    			</p>
 
@@ -196,7 +227,7 @@
 
 	    			<p>
 
-	    				Todos esses tipos de comunicação estão definidos na <i>Southbound Interface</i> mais utilizada, o <i>OpenFlow</i>. No entanto, há outras APIs, como OVSDB, ForCES e OpFlex, que adicionam novas funções. Por exemplo, a interface OVSDB permite aos elementos de controle a criação de várias instâncias de comutadores virtuais, configurar políticas de Qualidade de Serviço nas interfaces, configurar túneis e gerenciar filas. Por isso, ela é uma interface complementar ao <i>OpenFlow</i> para o uso com <i>Open vSwitch</i>.
+	    				Todos esses tipos de comunicação estão definidos na <strong><i>Southbound Interface</i> mais utilizada, o <i>OpenFlow</i></strong>. No entanto, há outras APIs, como OVSDB, ForCES e OpFlex, que adicionam novas funções. Por exemplo, a interface OVSDB permite aos elementos de controle a criação de várias instâncias de comutadores virtuais, configurar políticas de Qualidade de Serviço nas interfaces, configurar túneis e gerenciar filas. Por isso, ela é uma interface complementar ao <i>OpenFlow</i> para o uso com <i>Open vSwitch</i>.
 
 	    			</p>
 
@@ -206,7 +237,19 @@
 
 	    			<p>
 
-	    				O papel do plano de dados é encaminhar os dados na rede. Ele é composto de dispositivos de encaminhamento. Esses dispositivos são elementos de <i>hardware</i> ou <i>software</i> especializados em encaminhar pacotes. Porém, diferentemente de roteadores, comutadores ou <i>middleboxes</i> convencionais, eles não carregam implementações de protocolos e programas complexos. A “inteligência” está concentrada no plano de controle. Em um dispositivo configurado para <i>OpenFlow</i>, por exemplo, apenas estão instaladas <i>tabelas de fluxos</i>, que decidem as ações que serão tomadas com cada pacote. Elas são compostas de <i>regras de compatibilidade de fluxos</i>, isto é, regras de comparação que verificam valores de campos do cabeçalho do pacote, como o destino, protocolo e número de porta com algum valor esperado, e ações a serem tomadas com o pacote caso a regra valha. Ações que podem ser realizadas são:
+	    				O papel do plano de dados é <strong>encaminhar os dados na rede</strong>. Ele é <strong>composto de dispositivos de encaminhamento</strong>, que são elementos de <i>hardware</i> (roteadores ou comutadores) ou <i>software</i> (máquinas virtuais) especializados em encaminhar pacotes. Porém, diferentemente de roteadores, comutadores ou <i>middleboxes</i> convencionais, eles não carregam implementações de protocolos e programas complexos. A <strong>“inteligência” está concentrada no plano de controle</strong>.
+
+	    			</p>
+
+	    			<p>
+
+	    				Em um dispositivo configurado para <i>OpenFlow</i>, por exemplo, apenas estão instaladas <i>tabelas de fluxos</i>, que decidem as ações que serão tomadas com cada pacote. Nesse contexto, um fluxo é um conjunto de pacotes com valores semelhantes.
+
+	    			</p>
+
+	    			<p>
+
+	    				Essas tabelas são compostas de <i>regras de compatibilidade de fluxos</i>, isto é, regras que comparam valores de campos do cabeçalho do pacote bit a bit, como o destino, protocolo e número de porta, com algum valor esperado, e ações a serem tomadas com o pacote caso a regra valha. Além disso, as tabelas de fluxo possuem contadores, que mantêm estatísticas de utilização e permitem a remoção de fluxos inativos. Ações que podem ser realizadas são:
 
 	    			</p>
 
@@ -255,7 +298,7 @@
 
 	    					<p>
 
-	    						Enviá-lo para o <i>pipeline</i> de processamento
+	    						Enviá-lo para a próxima tabela de fluxos ou para alguma tabela especial
 
 	    					</p>
 
@@ -266,7 +309,7 @@
 
 	    					<p>
 
-	    						Enviá-lo para a próxima tabela de fluxos ou para alguma tabela especial
+	    						Enviá-lo para a sequência de processamento normal do equipamento nas camadas 2 (Internet) ou 3 (Transporte)
 
 	    					</p>
 
@@ -277,21 +320,44 @@
 
 	    			<p>
 
-	    				Caso nenhuma regra seja satisfeita, o pacote pode ser descartado, mas o mais comum é que seja criada uma regra padrão (<i>default</i>) que encaminhe qualquer pacote que não satisfaça nenhuma das outras regras para o controlador.
+	    				A última ação permite que um equipamento compatível com <i>OpenFlow</i> também possa realizar o processamento normal da <i>Internet</i>.
+
+	    			</p>
+
+	    			<p>
+
+	    				Caso nenhuma regra seja satisfeita, o pacote pode ser descartado, mas o mais comum é que seja criada uma regra padrão (<i>default</i>) que encaminhe qualquer pacote que não satisfaça nenhuma das outras regras para o controlador. Esses casos normalmente ocorrem no primeiro pacote de cada fluxo.
+
+	    			</p>
+
+	    			<p>
+
+	    				Normalmente, as regras que têm como ação associada o envio de um pacote para o controlador tratam pacotes de controle (por exemplo, ICMP, DNS e DHCP), ou de protocolos de roteamento (por exemplo, OSPF e BGP).
 
 
 	    			</p>
 
 	    			<p>
 
-	    				A prioridade entre as regras segue a ordem das linhas de uma tabela e, posteriormente, a ordem das tabelas em uma sequência de processamento.
+	    				A prioridade entre as regras segue a ordem das linhas de uma tabela e, posteriormente, a ordem das tabelas em uma sequência de processamento. A Figura 3 ilustra os campos examinados em uma tabela de fluxos e apresenta um exemplo desse tipo de tabela.
+
 	    				
 	    			</p>
 
+	    			<center>
+
+	    			<img src="images/fluxo.png" alt="Exemplo de política de rede em NetCore" height="341" width="770">
+
+	    			</center>
+
+	    			<p></p>
+
+	    			<h5>Figura 3: Acima, um exemplo de tabela de fluxos, e abaixo, os campos do cabeçalho usados na especificação de fluxos do <i>OpenFlow</i></h5>
+
 
 	    			<p>
 
-	    				A imagem abaixo descreve, de forma resumida, a arquitetura de uma SDN.
+	    				A Figura 4 descreve, de forma resumida, a arquitetura de uma SDN.
 
 	    			</p>
 
@@ -300,7 +366,9 @@
 
 	    			<img src="images/arq2.png" alt="Arquitetura de uma SDN" height="737" width="754">
 
-	    			<h5>Figura 1: A arquitetura de uma SDN</h5>
+	    			<p></p>
+
+	    			<h5>Figura 4: A arquitetura de uma SDN</h5>
 
 	    			</center>
 

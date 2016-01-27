@@ -103,6 +103,35 @@
 				</ul>
 			</li>
 			</ul>
+
+
+		<p>4) Qual é o papel dos planos de gerenciamento, controle e dados e como eles interagem entre si em uma SDN?</p>
+			<ul>
+				<li>
+
+					Plano de Gerenciamento: Realiza a interface entre o administrador da rede e a SDN. Nesse plano, se concentram as aplicações de rede, que obtêm estatísticas sobre a rede e enviam especificações da rede desejada por meio da <i>Northbound Interface</i>.
+
+				</li>
+
+				<p></p>
+				
+				<li>
+
+					Plano de Controle: Concentra a “inteligência” da rede. Composto pelo Sistema Operacional da Rede (NOS), ele fornece estatísticas sobre a rede e informações sobre a topologia pela <i>Northbound Interface</i> e realiza distribuição de configurações para roteadores, descoberta de dispositivos e roteamento através da <i>Southbound Interface</i>. Através dessa interface, ele recebe também estatísticas sobre a rede, que são processadas e enviadas pela <i>Northbound Interface</i>.
+
+
+				</li>
+
+				<p></p>
+
+				<li>
+
+					Plano de Dados: Composto de dispositivos de encaminhamento (comutadores e roteadores físicos ou virtuais), seu papel principal é encaminhar os dados na rede. Recebendo configurações do controlador através da <i>Southbound Interface</i>, os dispositivos podem assumir diversas funções além do encaminhamento, como <i>firewall</i>, balanceador de carga e sistema de detecção de intrusos (IDS). Também envia estatísticas armazenadas na tabela de fluxos para o controlador pela <i>Southbound Interface</i>.
+
+
+				</li>
+
+			</ul>
 		</div>
 		
 	    <!-- Footer -->
