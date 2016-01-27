@@ -3,7 +3,7 @@
 	<head>
 
 	    <meta charset="utf-8">
-	    <title>SDN - Software Definied Network</title>
+	    <title>SDN - Software Defined Network</title>
 
 	    <!-- Bootstrap Core CSS -->
 	    <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -75,66 +75,96 @@
 
 	    <h2 align="center"> Conceitos e Ferramentas </h2>
 	    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-	    	<h3 align="center"> Conceitos</h3>
+	    	<h3 id="conceitos">Conceitos</h3>
+<p>Com uma arquitetura que separa os planos de controle e dados, as SDN permitem que o controle da rede seja diretamente programável e que a infra-estrutura subjacente seja abstraída para o acesso a partir de aplicativos.</p>
+<p>A <a href="https://www.opennetworking.org/about/onf-overview">ONF</a> (<em>Open Networking Foundation</em>) é uma organização dedicada à promoção e adoção de Redes Definidas por Software através de um padrão livre. São os responsáveis pela introdução do padrão OpenFlow.</p>
+<p><a href="references.html#1">[1]</a> propõe uma caracterização das SDNs baseada em quatro pilares:</p>
+<ul>
+<li>Os planos de dados e de controle são desacoplados. Dispositivos de rede passam a ter o papel de apenas encaminhar pacotes;</li>
+<li>Decisões de encaminhamento são baseadas no <strong>fluxo</strong> (fluxo é uma sequência de pacotes entre a fonte e o destino) e não no destino. Todos os pacotes de um fluxo recebem a mesma política nos dispositivos de encaminhamento;</li>
+<li>A lógica de controle é movida para uma entidade externa, o controlador da SDN ou NOS (<em>Network Operating System</em>) que roda em um servidor e fornece as abstrações e recursos necessários para programar os dispositivos de encaminhamento com base em uma visão centralizada e abstrata da rede;</li>
+<li>A rede é programável através de aplicações rodando no NOS que interagem com os dispositivos do plano de dados.</li>
+</ul>
+<p>Essas funcionalidades são baseadas em três abstrações principais [1], sendo elas:</p>
+<ul>
+<li>Encaminhamento: Deve permitir qualquer comportamento de encaminhamento à rede sem que seja necessário expor os detalhes do hardware envolvido no processo;</li>
+<li>Distribuição: Tem como objetivo tornar o problema do controle distribuído em um problema logicamente centralizado. Isso é feito por meio de de uma camada de distribuição comum, que reside no NOS. Essa camada instala os comandos de controle nos dispositivos de encaminhamento e coleta informações do estado da rede;</li>
+<li>Especificação: Deve possibilitar que uma aplicação de rede expresse o comportamento desejado para a rede sem que seja responsável por implementar esse comportamento, mapeando configurações abstratas especificadas pelas aplicações em uma configuração física na rede global.</li>
+</ul>
+<p>Embora no texto o foco principal seja mais relacionado ao OpenFlow, cabe ressaltar que outras formas de implementar SDNs são propostas. Algumas como alternativa ao uso do OpenFlow. Segundo <a href="references.html#26">[26]</a>, três abordagens atualmente dominam o mercado de SDNs:</p>
+<ul>
+<li>OpenFlow:
+<ul>
+<li>Protocolo de comunicação <em>southbound</em> que fornece uma abstração para comunicação entre um controlador e os dispositivos de rede;</li>
+<li>Baseado em fluxos, permite que a rede seja programada de forma flexível e dinâmica;</li>
+<li>Necessita de aparelhos compatíveis com seu protocolo no plano de dados;</li>
+</ul></li>
+<li>Protocolos de encapsulamento:
+<ul>
+<li>O exemplo dado na referência é o VXLAN (<em>Virtual eXtensible LAN</em>);</li>
+<li>Usa uma abordagem de <em>&quot;overlay&quot;</em>, para que a SDN possa ser implantada sem que seja necessária a troca da infra-estrutura do plano de dados;</li>
+<li>Nessa abordagem os pacotes devem ser encapsulados para que seja tunelados para dispositivos inteligentes que os desencapsulam e enviam para o alvo;</li>
+<li>Tem objetivo de permitir que usuários continuem utilizando sua base de rede;</li>
+</ul></li>
+<li>Cisco <em>Application Centric Infrastructure</em> (ACI):
+<ul>
+<li>É uma solução de infra-estrutura completa executada por um administrador de políticas de rede, que requer dispositivos de rede ineligentes no plano de dados.</li>
+</ul></li>
+</ul>
+<h4 id="conceitos-recorrentes-no-texto">Conceitos recorrentes no texto:</h4>
+<ul>
+<li>Hipervisores:
+<ul>
+<li>Também conhecidos como máquinas virtuais, no caso das aplicações descritas no texto são sistemas que permitem a reprodução de diversas funções de dispositivos de rede em dispositivos genéricos;</li>
+</ul></li>
+<li>Interfaces:
+<ul>
+<li><em>Northbound</em>: interface utilizada para abstrair os conceitos de baixo nível de uma camada para suas camadas superiores;</li>
+<li><em>Southbound</em>: interface utilizada para a comunicação com camadas abaixo de uma certa camada;</li>
+</ul></li>
+<li><em>APIs</em>:
+<ul>
+<li>Do inglês <em>Application Programming Interface</em> é um conjunto de rotinas, protocolos e ferramentas que fornecem uma interface para facilitar o desenvolvimento de aplicações que interajam com determinado componente de um sistema.</li>
+</ul></li>
+</ul>
+<h3 id="ferramentas">Ferramentas</h3>
+<ul>
+<li><a href="http://www.projectfloodlight.org/floodlight/"><strong>Floodlight</strong></a>
+<ul>
+<li>Controlador SDN fornecido sob licença Apache e baseado em Java;</li>
+<li>Trabalha com comutadores físicos e virtuais através do protocolo OpenFlow;</li>
+<li>Permite a especificação do protocolo a ser utilizado para o controle remoto de dispositivos de rede;</li>
+<li>É facilmente extensível e fácil de configurar com poucas dependências;</li>
+<li>Pode administrar redes mistas OpenFlow e não-OpenFlow;</li>
+</ul></li>
+<li><a href="http://www.projectfloodlight.org/indigo/"><strong>Indigo</strong></a>
+<ul>
+<li>Projeto OpenSource focado em fornecer suporte ao OpenFlow em comutadores físicos e em hipervisores;</li>
+<li>É a base do projeto Switch Light da <a href="http://www.bigswitch.com/download/switch-light">Big Switch Networks</a>;</li>
+</ul></li>
+<li><a href="https://wiki.openstack.org/wiki/Neutron"><strong>Neutron (OpenStack)</strong></a>
+<ul>
+<li>Parte do projeto OpenStack, fornece a “rede como serviço” (tradução livre de NaaS: networking as a service) entre dispositivos como controladores de interface de rede (NICs) administrados por serviços do OpenStack como o Nova;</li>
+<li>Permite a criação de topologias de rede complexas na nuvem;</li>
+<li>Inclui funcionalidades de rede - como Qualidade de Serviço ou Firewalls, por exemplo - por meio de de plugins;</li>
+<li>Permite a criação serviços de redes avançados acopláveis à redes OpenStack;</li>
+<li>Interface gráfica para algumas operações;</li>
+</ul></li>
+<li><a href="http://openvswitch.org/"><strong>Open vSwitch</strong></a>
+<ul>
+<li>Open vSwitch é um comutador virtual distribuído de múltiplas camadas, fornecido sob a licença Apache 2.0;</li>
+<li>Implementa o protocolo OpenFlow;</li>
+<li>O protocolo <em>OVSDB</em> (<em>Open vSwitch Database Management Protocol</em>) é utilizado, junto à outros controladores, para fornecer informações de configuração ao servidor de banco de dados de comutadores, permitindo assim a manipulação de elementos da topologia interna da implementção Open vSwitch;</li>
+</ul></li>
+<li><a href="https://www.opendaylight.org/"><strong>OpenDaylight</strong></a>
+<ul>
+<li><a href="references.html#25">[25]</a> &quot;Tem como objetivo fornecer uma plataforma SDN funcional que oferece uma implementação direta de SDN sem a necessidade de outros componentes. Além disso, <em>add-ons</em> podem ser oferecidos para agregar valor.&quot;</li>
+<li>Framework Java com o intuito de acelerar a adoção das SDNs;</li>
+<li>Suporta OpenFlow assim como outros padrões de SDN;</li>
+<li>Fornece um controlador para a SDN que expõe <em>APIs northbound</em> abertas;</li>
+</ul></li>
+</ul>
 
-	    	<p>
-	    		O termo SDN ( <i> Software Definied Networking </i>) foi originalmente cunhado para representar as ideias e o trabalho relacionado ao OpenFlow em Stanford.
-	    	</p>
-
-	    	<p>
-	    		[1] propõe uma caracterização das SDN baseada em quatro pilares:
-	    		<ul>
-	    			<li>Os <strong>planos de dados e de controle são desacoplados</strong>. Dispositivos de rede passam a ter o papel de apenas encaminhar pacotes;</li>
-	    			<li>Decisões de encaminhamento são <strong>baseadas no fluxo</strong> (fluxo é uma sequência de pacotes entre a fonte e o destino) e não no destino. Todos os pacotes de um fluxo recebem a mesma política nos dispositivos de encaminhamento;</li>
-	    			<li>A <strong>lógica de controle é movida para uma entidade externa</strong>, o controlador da SDN ou NOS (<i>Network Operating System</i>) que roda em um servidor e fornece as abstrações e recursos necessários para programar os dispositivos de encaminhamento com base em uma visão centralizada e abstrata da rede;</li>
-	    			<li>A <strong>rede é programável</strong> através de aplicações rodando no NOS que interagem com os dispositivos do plano de dados.</li>
-	    		</ul>
-	    	</p>
-
-	    	<p>Para cumprir seu objetivo, a SDN trabalha com <strong>três abstrações principais</strong> [1], sendo elas: <i>encaminhamento</i>, <i>distribuição</i> e <i>especificação</i>.</p>
-
-	    	<p>
-	    		<ul>
-	    			<li><strong>Encaminhamento:</strong> Deve permitir qualquer comportamento de encaminhamento à rede sem que seja necessário expor os detalhes do hardware envolvido no processo;</li>
-	    			<li><strong>Distribuição:</strong> Tem como objetivo tornar o problema do controle distribuído em um problema logicamente centralizado. Isso é feito por meio de de uma camada de distribuição comum, que reside no NOS. Essa camada instala os comandos de controle nos dispositivos de encaminhamento e coleta informações do estado da rede;</li>
-	    			<li><strong>Especificação:</strong> Deve possibilitar que uma aplicação de rede expresse o comportamento desejado para a rede sem que seja responsável por implementar esse comportamento, mapeando configurações abstratas especificadas pelas aplicações em uma configuração física na rede global.</li>
-	    		</ul>
-	    	</p>
-
-	    	<h3 align="center"> Ferramentas</h3>
-
-		    <p><strong><a href="http://www.projectfloodlight.org/floodlight/">Floodlight:</a></strong>
-		    	<ul>
-		    		<li>Controlador SDN fornecido sob licensa Apache e baseado em Java;</li>
-		    		<li>Trabalha com comutadores físicos e virtuais através do protocolo OpenFlow;</li>
-		    		<li>Permite a especificação do protocolo a ser utilizado para o controle remoto de dispositivos de rede;</li>
-		    		<li>É facilmente extensível e faćil de configurar com poucas dependências;</li>
-		    		<li>Pode administrar redes mistas OpenFlow e não-OpenFlow.</li>
-		    	</ul>
-		    </p>
-
-		    <p><strong><a href="http://www.projectfloodlight.org/indigo/">Indigo:</a></strong>
-		    	<ul>
-		    		<li>Projeto OpenSource focado em fornecer suporte ao OpenFlow em comutadores físicos e em hipervisores;</li>
-		    		<li>É a base do projeto <a href="http://www.bigswitch.com/download/switch-light">Switch Light</a> da Big Switch Networks.</li>
-		    	</ul>
-		    </p>
-
-		    <p><strong><a href="https://wiki.openstack.org/wiki/Neutron">Neutron</a> (<a href="https://www.openstack.org/">OpenStack</a>)</strong>
-		    	<ul>
-		    		<li>Parte do projeto OpenStack, fornece a “rede como serviço” (tradução livre de networking as a service) entre dispositivos como controladores de interface de rede (NICs) administrados por serviços do OpenStack como o Nova;</li>
-		    		<li>Permite a criação de topologias de rede complexas na nuvem;</li>
-		    		<li>Incluir funcionalidades de rede - como Qualidade de Serviço ou Firewalls, por exemplo - através de plugins;</li>
-		    		<li>Permitir a criação serviços de redes avançados acopláveis à redes OpenStack;</li>
-		    		<li>Interface gráfica para algumas operações.</li>
-		    	</ul>
-		    </p>
-
-		    <p><strong><a href="http://openvswitch.org/">Open vSwitch</a></strong>
-		    	<ul>
-		    		<li>Open vSwitch funciona é um comutador virtual distribuído de múltiplas camadas fornecido sob a licensa Apache 2.0.</li>
-		    	</ul>
-		    </p>
 	    </div>
 
 
